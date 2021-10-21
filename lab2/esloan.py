@@ -2,7 +2,7 @@ def ask_int(question):
     print(question)
     return int(input())
 
-def ask_tf(question):
+def ask_boolean(question):
     print(question)
     res = input()
     if (res.lower() == "yes" or res.lower() == "y"):
@@ -10,17 +10,11 @@ def ask_tf(question):
     elif (res.lower() == "no" or res.lower() == "n"):
         return False
     else:
-        return ask_tf(question)
-
-def success():
-    print("Congratulations! You have qualified for a mortgage!")
-
-def fail():
-    print("Unfortunately you do not meet our requirements")
+        return ask_boolean(question)
 
 def qualify():
 
-    res = ask_tf("Do already you have a mortgage?")
+    res = ask_boolean("Do already you have a mortgage?")
     if (res):
         return False
     
@@ -43,6 +37,6 @@ def qualify():
 
 
 if (qualify()):
-    success()
+    print("Congratulations! You have qualified for a mortgage!")
 else:
-    fail()
+    print("Unfortunately you do not meet our requirements")
